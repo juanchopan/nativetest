@@ -1,0 +1,59 @@
+/* Add mobile styles for the component here.  */
+@import '../../../theme/colors';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 300px;
+  height: 60px;
+}
+
+.btn-success {
+  background-color: $success;
+  border-color: $success;
+  border-width: 1px;
+  color: white;
+}
+
+.btn-fail {
+  background-color: $fail;
+  border-color: $fail;
+  border-width: 1px;
+  color: white;
+}
+
+.btn-success:disabled,
+.btn-fail:disabled {
+  background-color: #ccc;
+  color: #777777;
+  border-color: #ccc;
+}
+
+.btn-alt {
+  font-size: 30px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animate-button {
+  animation-name: slide-up;
+  animation-iteration-count: 1;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

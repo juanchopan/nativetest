@@ -1,0 +1,51 @@
+<ns-action-bar [hasChallenge]="!isCreating"></ns-action-bar>
+<form
+  class="form"
+  (ngSubmit)="onSubmit(titleCtrl.value, descriptionCtrl.value)"
+  *ngIf="!isLoading"
+>
+  <div class="input-field">
+    <label
+      class="label"
+      [ngClass]="{ invalid: !titleCtrl.valid && titleCtrl.touched }"
+      >Title</label
+    >
+    <input
+      class="input"
+      type="text"
+      name="title"
+      required
+      [(ngModel)]="title"
+      #titleCtrl="ngModel"
+    />
+    <p *ngIf="!titleCtrl.valid && titleCtrl.touched">
+      Please enter a valid title.
+    </p>
+  </div>
+  <div class="input-field">
+    <label
+      class="label"
+      [ngClass]="{ invalid: !descriptionCtrl.valid && descriptionCtrl.touched }"
+      >Description</label
+    >
+    <textarea
+      class="input"
+      rows="4"
+      name="description"
+      required
+      [(ngModel)]="description"
+      #descriptionCtrl="ngModel"
+    ></textarea>
+    <p *ngIf="!descriptionCtrl.valid && descriptionCtrl.touched">
+      Please enter a valid description.
+    </p>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="!titleCtrl.valid || !descriptionCtrl.valid"
+  >
+    Save
+  </button>
+</form>
+<ns-loading-indicator *ngIf="isLoading"></ns-loading-indicator>
